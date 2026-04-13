@@ -10,7 +10,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0f14;--bg2:#13161e;--bg3:#1a1e29;--border:#2a2f3d;--accent:#00e5a0;--accent2:#00b37a;--red:#ff4757;--yellow:#ffd32a;--text:#e8eaf0;--text2:#8b91a8;--text3:#5a6070}
 body{background:var(--bg);color:var(--text);font-family:"Noto Sans KR",sans-serif;min-height:100vh;overflow-x:hidden}
-.app{display:grid;grid-template-columns:400px 1fr 300px;grid-template-rows:52px 1fr;min-height:100vh}
+.app{display:grid;grid-template-columns:520px 1fr 280px;grid-template-rows:52px 1fr;min-height:100vh}
 .header{grid-column:1/-1;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:8px}
 .header-logo{font-family:"Barlow Condensed",sans-serif;font-size:20px;font-weight:900;color:var(--accent);letter-spacing:2px;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .header-logo img{width:26px;height:26px;object-fit:contain}
@@ -27,29 +27,31 @@ body{background:var(--bg);color:var(--text);font-family:"Noto Sans KR",sans-seri
 .sync-dot{width:8px;height:8px;border-radius:50%;background:var(--text3);flex-shrink:0}
 .sync-dot.ok{background:var(--accent)}.sync-dot.err{background:var(--red)}
 .left-panel{background:var(--bg2);border-right:1px solid var(--border);overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
-.team-card{background:var(--bg3);border:2px solid var(--border);border-radius:12px;padding:10px 12px;transition:border-color .2s,box-shadow .2s}
+.team-card{background:var(--bg3);border:2px solid var(--border);border-radius:10px;padding:8px 12px;transition:border-color .2s,box-shadow .2s}
+.team-main{display:flex;align-items:center;gap:10px;width:100%}
+.team-info{display:flex;flex-direction:column;min-width:100px;max-width:120px;flex-shrink:0}
 .team-card.leader{border-color:var(--tc,var(--accent));box-shadow:0 0 8px 1px color-mix(in srgb,var(--tc,var(--accent)) 25%,transparent)}
 .team-card.my-team{outline:2px solid var(--tc,var(--accent));outline-offset:1px}
-.team-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.team-avatar{width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--tc,var(--border));background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text3)}
+.team-header{display:flex;align-items:center;gap:6px;margin-bottom:0}
+.team-avatar{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--tc,var(--border));background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text3)}
 .team-avatar img{width:100%;height:100%;object-fit:cover}
 .team-name-col{flex:1;min-width:0}
-.team-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.team-captain{font-size:10px;color:var(--text3)}
-.team-pts{font-family:"Barlow Condensed",sans-serif;font-size:14px;font-weight:900;padding:3px 10px;border-radius:20px;color:#000;flex-shrink:0}
+.team-name{font-size:18px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.team-captain{font-size:14px;color:#000;background:#fff;padding:3px 10px;border-radius:20px;font-weight:700;width:fit-content;margin-top:4px}
+.team-pts{font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:900;padding:4px 12px;border-radius:20px;color:#000;flex-shrink:0;background:#fff!important;margin-left:auto}
 .team-pts.low{background:var(--red)!important;color:#fff}
-.bid-pad{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.bid-pad{display:flex;flex-direction:column;gap:4px;margin-top:6px}
 .bid-pad-row{display:flex;gap:4px}
 .bid-btn{flex:1;padding:8px 4px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:700;border:none;font-family:"Noto Sans KR",sans-serif;color:#000;transition:filter .1s,transform .1s}
 .bid-btn:hover{filter:brightness(1.15);transform:scale(1.03)}
 .bid-btn:active{transform:scale(0.96)}
 .bid-btn:disabled{opacity:.2;cursor:not-allowed;transform:none;filter:none}
-.player-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
-.player-slot{background:#191d28;border:1px solid var(--border);border-radius:6px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2px;position:relative;overflow:hidden}
+.player-slots{display:flex;flex-direction:row;gap:6px;flex:1;flex-wrap:wrap;align-items:center}
+.player-slot{background:#191d28;border:1px solid var(--border);border-radius:8px;width:90px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1px;position:relative;overflow:hidden;flex-shrink:0}
 .player-slot img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;border-radius:5px}
-.slot-name{position:relative;z-index:1;font-size:8px;color:var(--text);background:rgba(0,0,0,.75);width:100%;padding:1px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;border-radius:0 0 4px 4px}
-.slot-bid{position:absolute;top:2px;right:2px;z-index:2;background:var(--accent);color:#000;font-size:8px;font-weight:900;padding:1px 3px;border-radius:3px;font-family:"Barlow Condensed",sans-serif}
-.slot-empty{font-size:13px;color:var(--text3);position:absolute;top:50%;left:50%;transform:translate(-50%,-60%)}
+.slot-name{position:relative;z-index:1;font-size:12px;color:var(--text);background:rgba(0,0,0,.75);width:100%;padding:3px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;border-radius:0 0 6px 6px}
+.slot-bid{position:absolute;top:4px;left:50%;transform:translateX(-50%);z-index:2;background:#fff;color:#000;font-size:16px;font-weight:900;padding:2px 8px;border-radius:20px;font-family:"Barlow Condensed",sans-serif;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.slot-empty{font-size:20px;color:var(--text3);position:absolute;top:50%;left:50%;transform:translate(-50%,-60%)}
 .center-panel{display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
 .auction-stage{background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:18px;min-height:190px}
 .current-player-wrap{display:flex;align-items:center;gap:20px;width:100%}
@@ -227,7 +229,11 @@ textarea{resize:vertical}
     <div class="form-row">
       <div class="fg" style="flex:2"><label>チーム名</label><input type="text" id="nTeamName" placeholder="Team Name"></div>
       <div class="fg" style="flex:1.5"><label>キャプテン</label><input type="text" id="nTeamCap" placeholder="キャプテン名"></div>
-      <div class="fg" style="flex:0 0 60px"><label>カラー</label><input type="color" id="nTeamColor" value="#00e5a0"></div>
+      <div class="fg" style="flex:0 0 auto">
+        <label>カラー (自動)</label>
+        <div id="colorPreview" style="width:28px;height:28px;border-radius:50%;background:#ff4d6d;border:2px solid #fff;margin-top:2px"></div>
+        <input type="hidden" id="nTeamColor" value="#ff4d6d">
+      </div>
     </div>
     <div class="form-row">
       <div class="fg" style="flex:0 0 90px"><label>初期ポイント</label><input type="number" id="nTeamPts" value="1000" min="0"></div>
@@ -410,14 +416,17 @@ window.addEventListener("fbReady", async () => {
 
     // 팀모드: Firebase값으로 보정 후 로컬 타이머 제어
     if(MODE === "team") {
-      const fbVal = G.timerVal;
-      // Firebase값이 로컬보다 크면(리셋 발생) 즉시 동기화
-      if(fbVal > _timerVal + 0.3) {
-        _timerVal = fbVal;
+      const fbSeq = G.timerSeq || 0;
+      // timerSeq가 바뀌면 항상 Firebase 값으로 동기화 (±5초, 리셋 모두 감지)
+      if(fbSeq > _lastFbSeq) {
+        _lastFbSeq = fbSeq;
+        _timerVal = G.timerVal;
         if(G.running) { stopTeamTimer(); startTeamTimer(); }
+        else stopTeamTimer();
+      } else {
+        if(G.running && !_teamTimer) startTeamTimer();
+        if(!G.running) stopTeamTimer();
       }
-      if(G.running && !_teamTimer) startTeamTimer();
-      if(!G.running) stopTeamTimer();
       renderTimerDisp();
     }
 
@@ -546,16 +555,16 @@ function renderLeft() {
         ).join("")}</div>`;
       }
       return `<div class="team-card" data-tid="${t.id}" style="--tc:${t.color}">
-        <div class="team-header">
+        <div class="team-main">
           <div class="team-avatar" style="border-color:${t.color}">${av}</div>
-          <div class="team-name-col">
+          <div class="team-info">
             <div class="team-name" style="color:${t.color}">${t.name}${isMyTeam?" ⭐":""}</div>
-            ${t.cap?`<div class="team-captain">キャプテン: ${t.cap}</div>`:""}
+            ${t.cap?`<div class="team-captain">${t.cap}</div>`:""}
           </div>
-          <div class="team-pts" data-pts="${t.id}" style="background:${t.color}">${t.pts}P</div>
+          <div class="player-slots" data-slots="${t.id}"></div>
+          <div class="team-pts" data-pts="${t.id}">${t.pts}P</div>
         </div>
         ${bidPadHTML}
-        <div class="player-slots" data-slots="${t.id}"></div>
       </div>`;
     }).join("");
   }
@@ -576,11 +585,9 @@ function renderLeft() {
     // 포인트 뱃지
     const ptsBadge = card.querySelector(`[data-pts="${t.id}"]`);
     if(ptsBadge) {
-      ptsBadge.textContent = t.pts + "P";
-      ptsBadge.className = "team-pts" + (low?" low":"");
-      if(!low) ptsBadge.style.background = t.color;
-      else ptsBadge.style.background = "";
-    }
+        ptsBadge.textContent = t.pts + "P";
+        ptsBadge.className = "team-pts" + (low?" low":"");
+      }
 
     // 입찰 버튼 활성/비활성만 변경 (재생성 없음!)
     const bidPad = card.querySelector(`[data-bidpad="${t.id}"]`);
@@ -747,19 +754,24 @@ function adminToggleTimer() {
   else { if(G) { G.running=true; startAdminTimer(); } }
 }
 
-function adminResetTimer() {
+async function adminResetTimer() {
   if(MODE!=="admin" || !G) return;
   stopTimer();
   _timerVal = G.defTimer;
+  G.timerVal = G.defTimer;
+  G.running = false;
+  G.timerSeq = (G.timerSeq||0) + 1;
   renderTimerDisp();
-  window.DB.update("state", {timerVal:G.defTimer, running:false}).catch(()=>{});
+  await pushG();
 }
 
-function adminAdjTimer(d) {
-  if(MODE!=="admin") return;
+async function adminAdjTimer(d) {
+  if(MODE!=="admin"||!G) return;
   _timerVal = Math.max(0, _timerVal+d);
+  G.timerVal = _timerVal;
+  G.timerSeq = (G.timerSeq||0) + 1;
   renderTimerDisp();
-  window.DB.update("state", {timerVal:_timerVal}).catch(()=>{});
+  await pushG(); // update 대신 전체 저장 → timerSeq가 덮어써지지 않음
 }
 
 // ═══════════════════════════════════════════
@@ -974,14 +986,27 @@ function renderTeamListModal() {
   }).join("");
 }
 
+const TEAM_COLORS = [
+  "#ff4d6d", // 빨강
+  "#00e5a0", // 민트
+  "#a78bfa", // 보라
+  "#ffd32a", // 노랑
+  "#38bdf8", // 하늘
+  "#fb923c", // 주황
+  "#34d399", // 초록
+  "#f472b6", // 핑크
+];
+
 async function addTeam() {
   if(!G) return;
   const name = document.getElementById("nTeamName").value.trim();
   if(!name) return alert("チーム名を入力してください");
+  if(G.teams.length >= 8) return alert("チームは最大8チームまでです");
+  const autoColor = TEAM_COLORS[G.teams.length % TEAM_COLORS.length];
   G.teams.push({
     id:nid(), name,
     cap: document.getElementById("nTeamCap").value.trim(),
-    color: document.getElementById("nTeamColor").value,
+    color: autoColor,
     pts: +document.getElementById("nTeamPts").value||1000,
     slots: +document.getElementById("nTeamSlots").value||5,
     img: document.getElementById("nTeamImg").value.trim(),
@@ -990,6 +1015,10 @@ async function addTeam() {
   await pushG();
   ["nTeamName","nTeamCap","nTeamImg"].forEach(id=>document.getElementById(id).value="");
   document.getElementById("nTeamPrev").innerHTML="👑";
+  // 다음 팀 색상 미리보기 업데이트
+  const nextColor = TEAM_COLORS[G.teams.length % TEAM_COLORS.length];
+  document.getElementById("nTeamColor").value = nextColor;
+  document.getElementById("colorPreview").style.background = nextColor;
   renderTeamListModal(); renderAll();
 }
 
